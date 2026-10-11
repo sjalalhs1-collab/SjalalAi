@@ -29,7 +29,9 @@ export default{async fetch(req,env){
  const msgs=clean(b.messages);if(!msgs.length||msgs[msgs.length-1].role!=="user")return J({error:"bad request"},400,h);
  const q=msgs[msgs.length-1].content,mode=ROLES[b.mode]?b.mode:"assist";
  if(EMERG.test(q))return J({text:EMSG,sources:[],mode:"rule"},200,h);
- const srcs=(await wiki(q)).filter(s=>/^https:\/\//.test(s.url));
+ const STOP=new Set("what who whom whose when where which how why does did the and for with that this are was were you your about tell please can could would should from into have has not but all any".split(" "));
+ const toks=q.toLowerCase().split(/\W+/).filter(x=>x.length>2&&!STOP.has(x));
+ const srcs=toks.length?(await wiki(q)).filter(s=>/^https:\/\//.test(s.url)).filter(s=>{const t=(s.title+" "+s.text.slice(0,300)).toLowerCase();return toks.some(k=>t.includes(k))}):[];
  const dom=mode==="expert"?"\nDomain: "+String(b.domain||"general").replace(/[^\w ,&()\-]/g,"").slice(0,40):"";
  const block=srcs.length?"\nSOURCES:\n"+srcs.map((s,i)=>"["+(i+1)+"] "+s.title+" - "+s.url+"\n"+s.text.slice(0,600)).join("\n"):"\nSOURCES: none found.";
  const out=srcs.map(s=>({title:s.title,url:s.url}));

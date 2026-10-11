@@ -47,7 +47,7 @@ footer{padding:30px 0;color:var(--mut);text-align:center;font-size:14px}
 @media(max-width:800px){.hero{grid-template-columns:1fr;text-align:center;min-height:0}.lead{margin:auto}.cta,.st{justify-content:center}nav .l{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 :focus-visible{outline:3px solid var(--o);outline-offset:3px}
-</style><link rel="stylesheet" href="fusion.css"></head><body class="fusion">
+</style><link rel="stylesheet" href="fusion.css"><link rel="stylesheet" href="water.css"></head><body class="water">
 <canvas id="bg" aria-hidden="true"></canvas>
 <nav><div class="w"><a class="br" href="./"><img src="logo.svg" alt="">Alsyed Jalal AI</a><a class="l" href="#features">Features</a><a class="l" href="#agents">Agents</a><a class="l" href="#how">How it works</a><a class="btn s" href="login.html">Log in</a><a class="btn p" href="app.html">Open dashboard</a></div></nav>
 <header class="w hero"><div>
@@ -77,12 +77,12 @@ footer{padding:30px 0;color:var(--mut);text-align:center;font-size:14px}
 <div class="cd rv"><h3>Verify and learn</h3><p>Checks the answer, cites sources and updates memory.</p></div>
 </div></div></section>
 <section><div class="w"><div class="band rv"><h2>Ready to build with agents?</h2><p class="lead" style="margin:8px auto 22px">Open the dashboard, try the tools, or sign in to your workspace.</p><a class="btn p" href="app.html">Open dashboard</a> <a class="btn s" href="login.html">Log in</a></div></div></section>
-<footer><div class="w">© Alsyed Jalal AI · AI answers can be wrong; check important facts.</div></footer>
+<footer><div class="w">© Alsyed Jalal AI · AI answers can be wrong; check important facts. · Build FINAL-2</div></footer>
 <script>
 (function(){var c=document.getElementById('bg'),x=c.getContext('2d'),W,H,P=[],rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
 function size(){W=c.width=innerWidth;H=c.height=innerHeight;P=[];var n=Math.min(70,Math.floor(W*H/22000));for(var i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4})}
-function f(){x.clearRect(0,0,W,H);P.forEach(function(p,i){if(!rm){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1}x.fillStyle='hsla('+(i*47%360)+',95%,66%,.85)';x.beginPath();x.arc(p.x,p.y,1.6,0,6.3);x.fill();for(var j=i+1;j<P.length;j++){var q=P[j],d=Math.hypot(p.x-q.x,p.y-q.y);if(d<130){x.strokeStyle='rgba(255,150,120,'+(.22*(1-d/130))+')';x.beginPath();x.moveTo(p.x,p.y);x.lineTo(q.x,q.y);x.stroke()}}});if(!rm)requestAnimationFrame(f)}
+function f(){x.clearRect(0,0,W,H);P.forEach(function(p,i){if(!rm){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1}x.fillStyle=document.body.classList.contains('water')?'hsla('+(175+(i*13%50))+',95%,72%,.85)':'hsla('+(i*47%360)+',95%,66%,.85)';x.beginPath();x.arc(p.x,p.y,1.6,0,6.3);x.fill();for(var j=i+1;j<P.length;j++){var q=P[j],d=Math.hypot(p.x-q.x,p.y-q.y);if(d<130){x.strokeStyle=(document.body.classList.contains('water')?'rgba(180,240,255,':'rgba(255,150,120,')+(.22*(1-d/130))+')';x.beginPath();x.moveTo(p.x,p.y);x.lineTo(q.x,q.y);x.stroke()}}});if(!rm)requestAnimationFrame(f)}
 size();f();addEventListener('resize',function(){size();if(rm)f()})})();
 (function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.15});document.querySelectorAll('.rv').forEach(function(e){io.observe(e)});
 var co=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;co.unobserve(e.target);var n=+e.target.dataset.n,t=0,s=Math.max(1,Math.ceil(n/60)),k=setInterval(function(){t=Math.min(n,t+s);e.target.textContent=t.toLocaleString()+(n>=100?'+':'');if(t>=n)clearInterval(k)},25)})});document.querySelectorAll('[data-n]').forEach(function(e){co.observe(e)})})();
-</script></body></html>
+</script><script src="theme.js"></script></body></html>

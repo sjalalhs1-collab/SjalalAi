@@ -26,14 +26,14 @@ a{color:var(--a)}details{margin-top:16px;color:var(--mut);font-size:13px}summary
 :focus-visible{outline:3px solid var(--o);outline-offset:2px}
 @media(max-width:820px){body{grid-template-columns:1fr}.L{padding:28px 20px}.L img{width:120px}.q{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-</style><link rel="stylesheet" href="fusion.css"></head><body class="fusion">
+</style><link rel="stylesheet" href="fusion.css"><link rel="stylesheet" href="water.css"></head><body class="water">
 <section class="L"><a href="./"><img src="logo.svg" alt="Alsyed Jalal AI"></a><h1>Welcome <span>back</span></h1><p>Sign in to continue your journey with your AI agents.</p><div class="q" id="q" aria-live="polite"></div></section>
 <main class="R"><form class="cd" id="f"><h2>Sign in</h2><p class="sub">Enter your gateway address and access code.</p>
 <label for="s">Gateway address</label><input id="s" placeholder="https://your-gateway.workers.dev" autocomplete="url" required>
 <label for="p">Access code</label><div class="f"><input id="p" type="password" autocomplete="current-password" required><button type="button" class="eye" id="e" aria-label="Show code">&#128065;</button></div>
 <p class="err" id="m" role="alert"></p><button class="go" id="g" type="submit">Sign in</button>
 <details><summary>Need help?</summary><p>The gateway keeps your AI key safe. The access code stops strangers from spending your AI credits. Both are stored on this device only. See SETUP-LIVE.md.</p></details>
-<p class="alt"><a href="app.html">Continue without AI</a> &middot; <a href="./">Back to home</a></p></form></main>
+<p class="alt"><a href="app.html">Continue without AI</a> &middot; <a href="./">Back to home</a></p><p class="alt" style="font-size:12px">Build FINAL-2</p></form></main>
 <script>
 var $=function(i){return document.getElementById(i)},K='aj-w';
 try{var w=JSON.parse(localStorage.getItem(K)||'{}');$('s').value=w.u||'';$('p').value=w.c||''}catch(e){}
@@ -46,4 +46,4 @@ try{var r=await fetch(base+'/auth',{headers:{'X-Access-Code':code}});
 if(r.ok){localStorage.setItem(K,JSON.stringify({u:base,c:code}));m.className='err ok';m.textContent='Connected. Opening your dashboard...';location.href='app.html'}else{m.textContent=r.status==401?'Wrong access code.':'Gateway error ('+r.status+')'}}
 catch(e){m.textContent='Cannot reach the gateway. Check the address.'}
 g.disabled=false;g.textContent='Sign in'};
-</script></body></html>
+</script><script src="theme.js"></script></body></html>

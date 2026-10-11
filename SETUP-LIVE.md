@@ -4,7 +4,7 @@ You need: your GitHub site (already online) + a free gateway that holds your AI 
 The gateway is `worker.js`. The key is NEVER put in the website or on GitHub.
 
 ## Step 1: update the website
-1. Unzip `github-pages-FINAL.zip`.
+1. Unzip `github-pages-FINAL2.zip`.
 2. GitHub repository -> Add file -> Upload files -> select ALL files -> replace -> Commit.
 3. Settings -> Pages -> branch `main`, folder `/ (root)`. Open the link in a private tab.
 
